@@ -1,0 +1,141 @@
+:root {
+    --page-2-color: #d4a373;
+    --page-4-color: #faedcd;
+    --text-color: #212529;
+    --animation-speed: 1s;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    background: #333;
+    color: #fff;
+    overflow: hidden;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #fefae0;
+    color: #283618;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in;
+}
+
+.btn:hover,
+.btn-dark {
+    padding: 0.8rem 1.5rem;
+    background: #606c38;
+    color: #fefae0;
+}
+
+.btn-dark:hover {
+    background: #fefae0;
+    color: #283618;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 10rem;
+}
+
+.page h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.page p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+#page-1::before {
+    content: '';
+    background: url('https://images.unsplash.com/photo-1536419598693-94435e7f9757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+#page-2 {
+    background: var(--page-2-color);
+    color: var(--text-color);
+}
+
+#page-3::before {
+    content: '';
+    background: url('https://images.unsplash.com/photo-1499762524203-b47f7b1b26a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80') no-repeat center center/cover;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#page-4 {
+    background: var(--page-4-color);
+    color: var(--text-color);
+}
+
+#page-1 h1 {
+    transform: translateY(-1100px);
+    animation: heading var(--animation-speed) forwards ease-in;
+}
+
+@keyframes heading {
+    to {
+        transform: translateY(0);
+    }
+}
+
+#page-1 p {
+    transform: translateX(-1800px);
+    animation: text 2s forwards ease-in;
+}
+
+@keyframes text {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media(max-width: 780px) {
+    .page h1 {
+        font-size: 3rem;
+        padding-bottom: 25px;
+    }
+
+    .page p {
+        display: none;
+    }
+
+    .btn,
+    .btn-dark {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .page {
+        padding: 0 5rem;
+    }
+
+    #page-1 h1 {
+        transform: translateY(0);
+        animation: heading var(--animation-speed) forwards ease-in;
+    }
+}
